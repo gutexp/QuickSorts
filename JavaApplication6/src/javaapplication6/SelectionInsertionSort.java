@@ -5,7 +5,7 @@
  */
 package javaapplication6;
 import java.util.*;
-import java.io.*;
+import javax.swing.*;
 /**
  *
  * @author Gute
@@ -29,12 +29,16 @@ public class SelectionInsertionSort {
         startArray(ar); //randomizando ambos vetores
         startArray(ar2);
         
+        String op = null;
         int i  , j , k = 0 , buff,z;
         i = ar[0];
         boolean al = true;
         
+        JOptionPane.showInputDialog("S para selection sort I para insertion sort",op);
+        
         //Selection Sort
-        while(k < 999){
+        if(op =="S"){
+           while(k < 999){
             for(j=k; j< ar.length; j++){ //percorre todo o array
                 if(i > ar[j]){  //caso i seja maior que o número sendo analisado do array no indice j
                     buff = i;
@@ -45,11 +49,13 @@ public class SelectionInsertionSort {
             ar[k] = i;  // Substitui
             k++;
             i = ar[k];
+           }
         }
+     
         
         //Insertion Sort
-        
-        for (i = 1; i < ar2.length; i++){
+        if(op == "I"){
+           for (i = 1; i < ar2.length; i++){
 			
             int key = ar2[i];
             j = i;
@@ -59,7 +65,9 @@ public class SelectionInsertionSort {
 		j -= 1;
             }
             ar2[j] = key;
-	}
+            } 
+        }
+        
         
         
         
